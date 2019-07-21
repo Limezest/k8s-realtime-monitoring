@@ -1,19 +1,19 @@
-db:
-- k8s:
+__db__:
+- _k8s_:
 
-- src:
+- _src_:
 ---
-front:
-- k8s:
+__front__:
+- _k8s_:
     - everything
-- src:
+- _src_:
     - everything
 ---
-watcher:
-- k8s:
+__watcher__:
+- _k8s_:
     - seperate workloads into namespaces
     - update role and rolebinding accordingly
-- src:
+- _src_:
     - write deploy and service
     - define build step
     - create kustomization for envs

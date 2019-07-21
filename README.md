@@ -2,6 +2,6 @@
 
 The end-goal is to have a website display realtime info about resources running in the same cluster.
 
-* _watcher_: Publishes podList events to RethinkDB
-* _db_: holds events
-* _front_: Subscribes to RethinkDB
+* __watcher__: Requests from kubernetes API and publishes podList events to RethinkDB
+* __db__: Holds an events table
+* __front__: Subscribes to RethinkDB, displays in realtime events from db
