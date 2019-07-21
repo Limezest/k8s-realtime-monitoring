@@ -1,3 +1,5 @@
+## Per-service TODO
+
 __db__:
 - _k8s_:
 
@@ -15,5 +17,6 @@ __watcher__:
     - update role and rolebinding accordingly
 - _src_:
     - write deploy and service
-    - define build step
+    - define build steps (Makefile + update spec.template images)
     - create kustomization for envs
+    - centralize variables in a configMapGenerator
