@@ -1,0 +1,269 @@
+//  --> onStart:
+//  curl -sSL \
+//    --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+//    -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+//    https://kubernetes:443/api/v1/namespaces/default/pods/
+//  --> Gives current PodList + metadata.resourceVersion (ex: 147612)
+//  --> curl /api/v1/namespaces/default/pods/?watch=1&resourceVersion=147612
+//  Filter { "type": ("ADDED"|"DELETED") }
+//  [https://kubernetes.io/docs/reference/using-api/api-concepts/#efficient-detection-of-changes]
+
+//  Watch for http 410 (GONE)
+
+{
+  "kind": "PodList",
+  "apiVersion": "v1",
+  "metadata": {
+    "selfLink": "/api/v1/namespaces/default/pods",
+    "resourceVersion": "143164"
+  },
+  "items": [
+    {
+      "metadata": {
+        "name": "curl",
+        "namespace": "default",
+        "selfLink": "/api/v1/namespaces/default/pods/curl",
+        "uid": "6787cea2-ab2e-11e9-8ea7-025000000001",
+        "resourceVersion": "143102",
+        "creationTimestamp": "2019-07-20T20:39:00Z",
+        "labels": {
+          "run": "curl"
+        }
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "default-token-scj8c",
+            "secret": {
+              "secretName": "default-token-scj8c",
+              "defaultMode": 420
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "curl",
+            "image": "odise/busybox-curl",
+            "resources": {
+              
+            },
+            "volumeMounts": [
+              {
+                "name": "default-token-scj8c",
+                "readOnly": true,
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always",
+            "stdin": true,
+            "stdinOnce": true,
+            "tty": true
+          }
+        ],
+        "restartPolicy": "Never",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccountName": "default",
+        "serviceAccount": "default",
+        "nodeName": "docker-for-desktop",
+        "securityContext": {
+          
+        },
+        "schedulerName": "default-scheduler",
+        "tolerations": [
+          {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          },
+          {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Initialized",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:39:00Z"
+          },
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:39:05Z"
+          },
+          {
+            "type": "PodScheduled",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:39:00Z"
+          }
+        ],
+        "hostIP": "192.168.65.3",
+        "podIP": "10.1.1.138",
+        "startTime": "2019-07-20T20:39:00Z",
+        "containerStatuses": [
+          {
+            "name": "curl",
+            "state": {
+              "running": {
+                "startedAt": "2019-07-20T20:39:04Z"
+              }
+            },
+            "lastState": {
+              
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "odise/busybox-curl:latest",
+            "imageID": "docker-pullable://odise/busybox-curl@sha256:46c07a8fd12ccf40056e8c82d9ccf453985ba6f370f1cf7534867cdca0479ed1",
+            "containerID": "docker://d1f3ec530a5a6f1d65e302618310bc4dc0f5ff222d90ceeab2e892c404cd68c0"
+          }
+        ],
+        "qosClass": "BestEffort"
+      }
+    },
+    {
+      "metadata": {
+        "name": "rethinkdb-6787f6949f-hq9ff",
+        "generateName": "rethinkdb-6787f6949f-",
+        "namespace": "default",
+        "selfLink": "/api/v1/namespaces/default/pods/rethinkdb-6787f6949f-hq9ff",
+        "uid": "59ecb09a-ab2c-11e9-8ea7-025000000001",
+        "resourceVersion": "142079",
+        "creationTimestamp": "2019-07-20T20:24:18Z",
+        "labels": {
+          "pod-template-hash": "2343925059",
+          "run": "rethinkdb"
+        },
+        "ownerReferences": [
+          {
+            "apiVersion": "extensions/v1beta1",
+            "kind": "ReplicaSet",
+            "name": "rethinkdb-6787f6949f",
+            "uid": "59e72c17-ab2c-11e9-8ea7-025000000001",
+            "controller": true,
+            "blockOwnerDeletion": true
+          }
+        ]
+      },
+      "spec": {
+        "volumes": [
+          {
+            "name": "default-token-scj8c",
+            "secret": {
+              "secretName": "default-token-scj8c",
+              "defaultMode": 420
+            }
+          }
+        ],
+        "containers": [
+          {
+            "name": "rethinkdb",
+            "image": "rethinkdb",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {
+              
+            },
+            "volumeMounts": [
+              {
+                "name": "default-token-scj8c",
+                "readOnly": true,
+                "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always",
+            "stdin": true,
+            "tty": true
+          }
+        ],
+        "restartPolicy": "Always",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccountName": "default",
+        "serviceAccount": "default",
+        "nodeName": "docker-for-desktop",
+        "securityContext": {
+          
+        },
+        "schedulerName": "default-scheduler",
+        "tolerations": [
+          {
+            "key": "node.kubernetes.io/not-ready",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          },
+          {
+            "key": "node.kubernetes.io/unreachable",
+            "operator": "Exists",
+            "effect": "NoExecute",
+            "tolerationSeconds": 300
+          }
+        ]
+      },
+      "status": {
+        "phase": "Running",
+        "conditions": [
+          {
+            "type": "Initialized",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:24:18Z"
+          },
+          {
+            "type": "Ready",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:24:22Z"
+          },
+          {
+            "type": "PodScheduled",
+            "status": "True",
+            "lastProbeTime": null,
+            "lastTransitionTime": "2019-07-20T20:24:18Z"
+          }
+        ],
+        "hostIP": "192.168.65.3",
+        "podIP": "10.1.1.136",
+        "startTime": "2019-07-20T20:24:18Z",
+        "containerStatuses": [
+          {
+            "name": "rethinkdb",
+            "state": {
+              "running": {
+                "startedAt": "2019-07-20T20:24:22Z"
+              }
+            },
+            "lastState": {
+              
+            },
+            "ready": true,
+            "restartCount": 0,
+            "image": "rethinkdb:latest",
+            "imageID": "docker-pullable://rethinkdb@sha256:7af2b5a808176e9a83c6aae97f5c6e3437cef0d359e62693edda1cff5d364af4",
+            "containerID": "docker://7b4042223614cc2d6408eb868c0378df2b273dedb3fd81f567297ebb293818c0"
+          }
+        ],
+        "qosClass": "BestEffort"
+      }
+    }
+  ]
+}

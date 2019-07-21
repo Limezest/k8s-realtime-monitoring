@@ -1,0 +1,10 @@
+bases:
+- ./db
+- ./front
+- ./watcher
+
+commonLabels:
+  app: k8s-realtime-monitoring
+
+resources:
+- rolebinding.yaml

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rethinkdb
+  labels:
+    app: rethinkdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rethinkdb
+  template:
+    metadata:
+      labels:
+        app: rethinkdb
+    spec:
+      containers:
+      - name: rethinkdb
+        image: rethinkdb
+        ports:
+        - name: web
+          containerPort: 8080
+          protocol: TCP
+        - name: db
+          containerPort: 28015
+          protocol: TCP
+        volumeMounts:
+        - mountPath: "/data"
+          name: rethinkdb-data
+    volumes:
+    - name: rethinkdb-data
+      persistentVolumeClaim:
+        claimName: rethinkdb

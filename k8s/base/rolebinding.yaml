@@ -1,0 +1,18 @@
+#kubectl create rolebinding default-viewer \
+#  --clusterrole=view \
+#  --serviceaccount=default:default \
+#  --namespace=default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-viewer
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: view
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default

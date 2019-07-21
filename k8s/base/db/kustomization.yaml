@@ -1,0 +1,7 @@
+commonLabels:
+  tier: db
+
+resources:
+- pvc.yaml
+- deployment.yaml
+- service.yaml

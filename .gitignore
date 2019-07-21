@@ -1,0 +1,4 @@
+rethinkdb_data/
+**/venv/
+**/.vscode/
+**/*.pyc
