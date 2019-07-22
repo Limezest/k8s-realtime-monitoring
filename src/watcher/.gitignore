@@ -1,8 +1,9 @@
+__pycache__/
 .vscode/
-venv/
 bin/
 include/
 lib/
+venv/
 .DS_Store
 *.swp
 *~
