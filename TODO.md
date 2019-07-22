@@ -2,7 +2,7 @@
 
 __db__:
 - _k8s_:
-
+    - change deployment to [replicas](https://github.com/rosskukulinski/kubernetes-rethinkdb-cluster)
 - _src_:
 ---
 __front__:
