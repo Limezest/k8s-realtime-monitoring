@@ -27,7 +27,7 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: rethinkdb-data
-    volumes:
-    - name: rethinkdb-data
-      persistentVolumeClaim:
-        claimName: rethinkdb
+      volumes:
+      - name: rethinkdb-data
+        persistentVolumeClaim:
+          claimName: rethinkdb
