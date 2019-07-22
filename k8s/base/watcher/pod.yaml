@@ -15,7 +15,7 @@ spec:
       - 'curl -sSL \'
       - '--cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \'
       - '-H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \'
-      - 'https://kubernetes:443/api/v1/namespaces/default/services/kubernetes'
+      - 'https://kubernetes.default:443/api/v1/namespaces/default/services/kubernetes'
     # resources:
     #   requests:
     #     cpu: '10m'

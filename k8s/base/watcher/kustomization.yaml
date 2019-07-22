@@ -7,3 +7,4 @@ resources:
 - pod.yaml
 - namespace.yaml
 - serviceaccount.yaml
+- rolebinding.yaml
