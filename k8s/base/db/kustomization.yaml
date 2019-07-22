@@ -1,3 +1,5 @@
+namespace: db
+
 commonLabels:
   tier: db
 
@@ -5,3 +7,4 @@ resources:
 - pvc.yaml
 - deployment.yaml
 - service.yaml
+- namespace.yaml
