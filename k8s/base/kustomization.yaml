@@ -1,4 +1,5 @@
 bases:
+- ./api
 - ./db
 - ./front
 - ./watcher

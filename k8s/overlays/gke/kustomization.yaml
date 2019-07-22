@@ -1,6 +1,9 @@
 bases:
 - ../../base
 
+commonLabels:
+  env: prod
+
 patchesStrategicMerge:
 - pvc.yaml
 - service.yaml

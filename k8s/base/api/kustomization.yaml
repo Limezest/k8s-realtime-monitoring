@@ -1,7 +1,7 @@
-namespace: front
+namespace: api
 
 commonLabels:
-  tier: front
+  tier: api
 
 resources:
 - namespace.yaml

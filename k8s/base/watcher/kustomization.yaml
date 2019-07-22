@@ -1,5 +1,8 @@
+namespace: watcher
+
 commonLabels:
   tier: watcher
-  
+
 resources:
 - pod.yaml
+- namespace.yaml
