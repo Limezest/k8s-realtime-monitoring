@@ -3,14 +3,14 @@
 ## Use:
 You can preview generated manifests using `kustomize`:
 ```bash
-kustomize build overlay/$YOUR_ENV
+kustomize build overlays/$YOUR_ENV
 ```  
 
 Deploy to Kubernetes using kubectl (>1.14) or apply the result of your last `kustomize build`:
 ```bash
-kubectl.1.14 apply -k overlay/$YOUR_ENV
+kubectl.1.14 apply -k overlays/$YOUR_ENV
 # or
-kustomize build overlay/$YOUR_ENV | kubectl apply -f -
+kustomize build overlays/$YOUR_ENV | kubectl apply -f -
 ```
 
 
@@ -18,16 +18,16 @@ kustomize build overlay/$YOUR_ENV | kubectl apply -f -
 `base` folder contains templates for resources definition.  
 They only define values that are common across all environment.  
 
-Each `overlay` subfolder defines a environment where you can deploy the app.  
+Each `overlays` subfolder defines a environment where you can deploy the app.  
 Files under an environment contains `patches` to apply to the referenced template.  
 
 `kustomization.yaml` files are used to reference `bases` with `patches`, as well as namespacing resources together and applying common labels and/or naming patterns.  
 
 
 ### Details
-- `overlay/dev` represents a docker-for-desktop Kubernetes cluster on my machine.  
+- `overlays/dev` represents a docker-for-desktop Kubernetes cluster on my machine.  
 
-- `overlay/gke` represents is a standard Google Kubernetes Engine cluster.
+- `overlays/gke` represents is a standard Google Kubernetes Engine cluster.
 
 
 ### Patches
