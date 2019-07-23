@@ -1,0 +1,10 @@
+__pycache__/
+.vscode/
+bin/
+include/
+lib/
+venv/
+.DS_Store
+*.swp
+*~
+*.pyc
