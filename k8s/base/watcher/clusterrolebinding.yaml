@@ -4,7 +4,7 @@
 #  --namespace=default
 ---
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
   name: watcher-viewer
 roleRef:
@@ -14,4 +14,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: watcher
-
+  namespace: watcher
