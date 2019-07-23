@@ -5,6 +5,6 @@ commonLabels:
   env: dev
 
 patchesStrategicMerge:
-- pvc_hostpath.yaml.yaml
+- pvc_hostpath.yaml
 - resources_compute.yaml
 - service_loadbalancer.yaml

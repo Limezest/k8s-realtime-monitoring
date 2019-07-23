@@ -12,14 +12,7 @@ spec:
       - "-c"
     args:
       - "curl -sSL \
-      --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
-      -H \"Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)\" \
-      https://kubernetes.default:443/api/v1/pods"
-    # resources:
-    #   requests:
-    #     cpu: '10m'
-    #     memory: '32Mi'
-    #   limits:
-    #     cpu: '10m'
-    #     memory: '32Mi'
+        --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+        -H \"Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)\" \
+        https://kubernetes.default:443/api/v1/pods"
   serviceAccountName: watcher

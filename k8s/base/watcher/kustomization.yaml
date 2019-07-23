@@ -4,7 +4,8 @@ commonLabels:
   tier: watcher
 
 resources:
-- pod.yaml
-- namespace.yaml
-- serviceaccount.yaml
 - clusterrolebinding.yaml
+- deployment.yaml
+- namespace.yaml
+- pod.yaml
+- serviceaccount.yaml
