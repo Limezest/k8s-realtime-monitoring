@@ -15,11 +15,4 @@ spec:
         --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
         -H \"Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)\" \
         https://kubernetes.default:443/api/v1/pods"
-    # resources:
-    #   requests:
-    #     cpu: '10m'
-    #     memory: '32Mi'
-    #   limits:
-    #     cpu: '10m'
-    #     memory: '32Mi'
   serviceAccountName: watcher
