@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: watcher
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: watcher
+        image: odise/busybox-curl
+        command:
+          - "/bin/sh"
+          - "-c"
+        args:
+          - "while 1; do sleep 1; done"
+        ports:
+        - containerPort: 8080
+      serviceAccount: watcher
