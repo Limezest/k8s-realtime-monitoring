@@ -16,12 +16,12 @@ kustomize build overlays/$YOUR_ENV | kubectl apply -f -
 
 ## Description:
 `base` folder contains templates for resources definition.  
-They only define values that are common across all environment.  
+They only define values that are common across all environments.  
 
-Each `overlays` subfolder defines a environment where you can deploy the app.  
-Files under an environment contains `patches` to apply to the referenced template.  
+Each `overlays` subfolder defines an environment where you can deploy.  
+Files under an environment contains `patches` with specific values to apply to the referenced template.  
 
-`kustomization.yaml` files are used to reference `bases` with `patches`, as well as namespacing resources together and applying common labels and/or naming patterns.  
+`kustomization.yaml` files are used to reference `bases` within `patches`, as well as namespacing resources together and applying common labels and/or naming patterns.  
 
 
 ### Details
