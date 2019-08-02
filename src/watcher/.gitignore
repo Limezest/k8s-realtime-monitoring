@@ -8,3 +8,5 @@ venv/
 *.swp
 *~
 *.pyc
+
+mock.y*ml
